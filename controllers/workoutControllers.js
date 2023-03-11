@@ -1,6 +1,5 @@
 const Workout = require("../models/Workout");
 const mongoose = require("mongoose");
-// const { request, response } = require("express");
 // create a new workout
 const createWorkout = async (request, response) => {
   const { title, load, reps } = request.body;
@@ -74,7 +73,7 @@ const updateWorkout = async (request, response) => {
   if (!workout) {
     return response
       .status(400)
-      .json({ eror: "No such Workout available for update" });
+      .json({ error: "No such Workout available for update" });
   }
   response.status(200).json(workout);
 };
@@ -84,5 +83,5 @@ module.exports = {
   getAllWorkout,
   getSingleWorkout,
   deleteWorkout,
-  updateWorkout,
+  updateWorkout
 };

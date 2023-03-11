@@ -1,7 +1,7 @@
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 require("dotenv").config();
-require("mongoose");
+// require("mongoose");
 // express app initialization
 const app = express();
 const cors = require('cors')
@@ -18,8 +18,7 @@ app.use("/api/workouts", workoutRoutes);
 // routes
 const start = async () => {
   try {
-    // await mongoose.connect("mongodb://127.0.0.1:27017/workouts_details");
-    await mongoose.connect("mongodb+srv://Cozy:COzyCode@cluster0.wraoul2.mongodb.net/?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true});
+    await mongoose.connect("mongodb://127.0.0.1:27017/workouts_details");
     await app.listen(process.env.PORT, () => {
       console.log("I am connected to db and listening on port", process.env.PORT);
     });
